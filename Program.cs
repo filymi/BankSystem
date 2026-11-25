@@ -1,12 +1,12 @@
-﻿Currency a = Currency.Usd;
-Console.WriteLine(a);
- var date = DateTime.Now;
- var b = new Transaction(date, "Deposit", 100m);
- var c  = new Transaction(date, "Deposit", 100m);
- Console.WriteLine(b);
- Console.WriteLine(b == c);
+﻿// Currency a = Currency.Usd;
+// Console.WriteLine(a);
+//  var date = DateTime.Now;
+//  var b = new Transaction(date, "Deposit", 100m);
+//  var c  = new Transaction(date, "Deposit", 100m);
+//  Console.WriteLine(b);
+//  Console.WriteLine(b == c);
 
- var d = new Account("1", Currency.Usd);
+//  var d = new Account("1", Currency.Usd);
 //  Console.WriteLine(d.Id);
 //  Console.WriteLine(d.Currency);
 //  Console.WriteLine(d.Balance);
@@ -23,12 +23,15 @@ Console.WriteLine(a);
 //     Console.WriteLine(t);
 // }
 
-d.Withdrawn += amount => Console.WriteLine($"Списано: {amount}");
-d.Deposit(1000m);
-d.Withdraw(300m);
-d.Withdraw(300m);
+// d.Withdrawn += amount => Console.WriteLine($"Списано: {amount}");
+// d.Deposit(1000m);
+// d.Withdraw(300m);
+// d.Withdraw(300m);
 // foreach(var t in d.History)
 // {
 //     Console.WriteLine(t);
 // }
 // Console.WriteLine(d.Balance);
+Console.WriteLine(CurrencyConverter.Convert(100m, Currency.Usd, Currency.Eur));
+Console.WriteLine(CurrencyConverter.Convert(200m, Currency.Rub, Currency.Eur));
+Console.WriteLine(CurrencyConverter.Convert(100m, Currency.Usd, Currency.Rub));
