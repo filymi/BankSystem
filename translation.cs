@@ -1,0 +1,1 @@
+record Transaction (DateTime Date, string Text, decimal Amount);
