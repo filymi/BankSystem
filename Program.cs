@@ -1,1 +1,2 @@
-﻿Console.WriteLine("Hello, World!");
+﻿Currency a = Currency.Usd;
+Console.WriteLine(a);
