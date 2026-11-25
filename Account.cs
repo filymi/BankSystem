@@ -12,5 +12,35 @@ class Account
 
     }
 
+    public void Deposit(decimal amount)
+    {
+        if (amount <= 0)
+        {
+            throw new ArgumentException("Введите корректную сумму");
+        }
+        Balance += amount;
 
+        var transaction = new Transaction(DateTime.Now, "Deposit", amount);
+        _history.Add(transaction);
+    }
+
+    public void Withdraw(decimal amount)
+    {
+        if (amount <=0)
+        {
+            throw new ArgumentException("Введите корректную сумму");
+        }
+        if (amount > Balance)
+        {
+            throw new InvalidCastException("Недостаточно средств");
+        }
+        Balance -= amount;
+        var transaction = new Transaction(DateTime.Now, "Withdraw", amount);
+        _history.Add(transaction);
+    }
+
+    private readonly List<Transaction> _history = new();
+    public IReadOnlyList<Transaction> History => _history;
+
+    
 }

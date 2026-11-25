@@ -1,1 +1,1 @@
-record Transaction (DateTime Date, string Text, decimal Amount);
+record Transaction (DateTime Date, string Type, decimal Amount);
