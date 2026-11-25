@@ -37,7 +37,11 @@ class Account
         Balance -= amount;
         var transaction = new Transaction(DateTime.Now, "Withdraw", amount);
         _history.Add(transaction);
+
+        Withdrawn?.Invoke(amount);
     }
+
+    public event Action<decimal>? Withdrawn;
 
     private readonly List<Transaction> _history = new();
     public IReadOnlyList<Transaction> History => _history;
