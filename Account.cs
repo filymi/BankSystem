@@ -1,4 +1,4 @@
-class Account
+public class Account
 {
     public string Id { get; }
     public Currency Currency { get; }
