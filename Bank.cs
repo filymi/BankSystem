@@ -40,8 +40,12 @@ public class Bank
             throw new InvalidOperationException("Недостаточно средств на счете отправителя.");
         }
 
-        fromAccount.Withdraw(amount);
         var converted = CurrencyConverter.Convert(amount, fromAccount.Currency, toAccount.Currency);
+        if (converted <= 0)
+        {
+            throw new ArgumentException("Введите корректную сумму для перевода.");
+        }
+        fromAccount.Withdraw(amount);
         toAccount.Deposit(converted);
         Console.WriteLine($"Перевод {amount} {fromAccount.Currency} с аккаунта {fromAccount.Id} на аккаунт {toAccount.Id} успешно выполнен.");
         
