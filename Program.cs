@@ -1,9 +1,15 @@
-﻿var Andrey = new User ("Andrey");
-var rubAccount = Andrey.OpenAccount("1", Currency.Rub);
-var usdAccount = Andrey.OpenAccount("2", Currency.Usd);
-rubAccount.Deposit(1000m);
-usdAccount.Deposit(10m);
-foreach (var account in Andrey.Accounts)
+﻿using System;
+
+var bank = new Bank();
+bank.AddUser("Alice");
+var found = bank.FindUser("Alice");
+Console.WriteLine($"Найден пользователь: {found?.Name ?? "не найден"}");
+
+try
 {
-    Console.WriteLine($"Номер: {account.Id}, Валюта: {account.Currency}, Баланс: {account.Balance}");
+    bank.AddUser("Alice");
+
+} catch (Exception e)
+{
+    Console.WriteLine(e.Message);
 }
