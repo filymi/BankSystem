@@ -45,6 +45,8 @@ public class Bank
         {
             throw new ArgumentException("Введите корректную сумму для перевода.");
         }
+        if (fromAccount == toAccount)
+            throw new InvalidOperationException("Нельзя переводить деньги на тот же счёт.");
         fromAccount.Withdraw(amount);
         toAccount.Deposit(converted);
         Console.WriteLine($"Перевод {amount} {fromAccount.Currency} с аккаунта {fromAccount.Id} на аккаунт {toAccount.Id} успешно выполнен.");
