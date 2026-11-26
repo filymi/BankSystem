@@ -20,7 +20,7 @@ public class Account
         }
         Balance += amount;
 
-        var transaction = new Transaction(DateTime.Now, "Deposit", amount);
+        var transaction = new TransactionAll(DateTime.Now, "Deposit", amount);
         _history.Add(transaction);
     }
 
@@ -35,7 +35,7 @@ public class Account
             throw new InvalidCastException("Недостаточно средств");
         }
         Balance -= amount;
-        var transaction = new Transaction(DateTime.Now, "Withdraw", amount);
+        var transaction = new TransactionAll(DateTime.Now, "Withdraw", amount);
         _history.Add(transaction);
 
         Withdrawn?.Invoke(amount);
@@ -43,8 +43,8 @@ public class Account
 
     public event Action<decimal>? Withdrawn;
 
-    private readonly List<Transaction> _history = new();
-    public IReadOnlyList<Transaction> History => _history;
+    private readonly List<TransactionAll> _history = new();
+    public IReadOnlyList<TransactionAll> History => _history;
 
     
 }

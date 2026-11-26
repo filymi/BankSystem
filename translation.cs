@@ -1,1 +1,0 @@
-public record Transaction (DateTime Date, string Type, decimal Amount);

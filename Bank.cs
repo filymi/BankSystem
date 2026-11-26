@@ -48,6 +48,7 @@ public class Bank
         fromAccount.Withdraw(amount);
         toAccount.Deposit(converted);
         Console.WriteLine($"Перевод {amount} {fromAccount.Currency} с аккаунта {fromAccount.Id} на аккаунт {toAccount.Id} успешно выполнен.");
+        Console.WriteLine(Transaction.CreateTransferTransaction(fromAccount.Id, toAccount.Id, amount, fromAccount.Currency, converted, toAccount.Currency));
         
     }
 

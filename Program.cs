@@ -7,7 +7,7 @@ var usdAccount = alice.OpenAccount("2", Currency.Usd);
 rubAccount.Deposit(1000m);
 try
 {
-    Bank.Transfer(rubAccount, usdAccount, 0.4m);
+    Bank.Transfer(rubAccount, usdAccount, 200m);
 }
 catch (Exception e)
 {
